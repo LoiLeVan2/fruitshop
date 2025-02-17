@@ -51,10 +51,17 @@
     padding: 10px;
     border-radius: 4px;
     color: white;
-    background-color: tomato;
+    background-color: hsl(0, 0%, 30%);
     font-size: 15px;
     cursor: pointer;
+    transition: 0.3s;
 }
+
+.login-popup-container button:hover {
+    background-color: tomato;
+}
+
+
 
 .login-popup-condition {
     display: flex;
@@ -64,7 +71,7 @@
 }
 
 .login-popup-condition input {
-    margin-top: 5px;
+    margin-top: 3px;
 }
 
 .login-popup p span {

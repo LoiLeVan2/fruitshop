@@ -1,7 +1,7 @@
 .header {
     height: 34vw;
     margin: 30px auto;
-    background: url('/header_img.png') no-repeat;
+    background: url('../../assets/frontend_assets/header_img.png') no-repeat;
     background-size: contain;
     position: relative;
 }
@@ -37,6 +37,12 @@
     background-color: white;
     font-size: max(1vw, 13px);
     border-radius: 50px;
+    transition: 0.5s;
+}
+
+.header-contents button:hover {
+    color: white;
+    background-color: tomato;
 }
 
 @media (max-width: 1050px) {
