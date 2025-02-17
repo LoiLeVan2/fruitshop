@@ -13,10 +13,10 @@ const Navbar = ({ setShowLogin }) => {
         <div className='navbar'>
             <Link to='/'><img src={assets.logo} alt="" className="logo" /></Link>
             <ul className="navbar-menu">
-                <li><Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""} title="Home">Home</Link></li>
-                <li><a href='#explore-menu' onClick={() => setMenu("menu")} className={menu === "menu" ? "active" : ""} title="Menu">Menu</a></li>
-                <li><a href='#app-download' onClick={() => setMenu("mobile-app")} className={menu === "mobile-app" ? "active" : ""} title="Mobile - App">Mobile - App</a></li>
-                <li><a href='#footer' onClick={() => setMenu("contact-us")} className={menu === "contact-us" ? "active" : ""} title="Contact Us">Contact Us</a></li>
+                <li><Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>Home</Link></li>
+                <li><a href='#explore-menu' onClick={() => setMenu("menu")} className={menu === "menu" ? "active" : ""}>Menu</a></li>
+                <li><a href='#app-download' onClick={() => setMenu("mobile-app")} className={menu === "mobile-app" ? "active" : ""}>Mobile - App</a></li>
+                <li><a href='#footer' onClick={() => setMenu("contact-us")} className={menu === "contact-us" ? "active" : ""}>Contact Us</a></li>
             </ul>
             <div className="navbar-right">
                 <img src={assets.search_icon} alt="" />
