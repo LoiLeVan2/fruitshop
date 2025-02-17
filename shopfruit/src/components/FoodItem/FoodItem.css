@@ -7,6 +7,10 @@
     animation: fadeIn 1s;
 }
 
+.food-item:hover {
+    transform: scale(1.05);
+}
+
 .food-item-image {
     width: 100%;
     border-radius: 15px 15px 0px 0px;
@@ -38,7 +42,7 @@
 }
 
 .food-item-price {
-    color: toamto;
+    color: tomato;
     font-size: 22px;
     font-weight: 500;
     margin: 10px 0px;
