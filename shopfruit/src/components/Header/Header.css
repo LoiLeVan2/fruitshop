@@ -1,4 +1,5 @@
 .header {
+    width: 80%;
     height: 34vw;
     margin: 30px auto;
     background: url('../../assets/frontend_assets/header_img.png') no-repeat;
