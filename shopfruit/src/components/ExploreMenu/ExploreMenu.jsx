@@ -5,8 +5,8 @@ import './ExploreMenu.css'
 const ExploreMenu = ({ category, setCategory }) => {
     return (
         <div className='explore-menu' id='explore-menu'>
-            <h1>Expplore our menu</h1>
-            <p className='explore-menu-text'>Choose from a diverse menu featuring a delectable array of dishes. Our mission is to satisfy your cravings and elevate your dining experience, one delicious meal at a time.</p>
+            <h1>Explore our menu</h1>
+            <p className='explore-menu-text'>Discover a wide variety of fresh, handpicked fruits that bring the perfect balance of taste and nutrition. We’re here to satisfy your cravings with the finest seasonal produce, ensuring every bite supports your health and well-being.</p>
             <div className="explore-menu-list">
                 {menu_list.map((item, index) => {
                     return (
