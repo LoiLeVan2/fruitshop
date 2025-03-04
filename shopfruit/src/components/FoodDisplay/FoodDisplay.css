@@ -1,6 +1,8 @@
 .food-display {
+    width: 80%;
+    margin: 30px auto;
     margin-top: 30px;
-    padding: 0 200px;
+    /* padding: 0 200px; */
 }
 
 .food-display h2 {

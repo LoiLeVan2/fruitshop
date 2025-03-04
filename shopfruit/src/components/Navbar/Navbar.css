@@ -1,4 +1,5 @@
 .navbar {
+    /* margin: auto 100px; */
     padding: 20px 100px;
     display: flex;
     justify-content: space-between;
@@ -8,15 +9,24 @@
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 1;
 
-    /* backdrop-filter: blur(10px); */
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 
+/* Khi cuộn xuống, navbar có nền trắng mờ + hiệu ứng blur */
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+    backdrop-filter: blur(10px);
+}
+
+/* Logo */
 .navbar .logo {
     width: 150px;
 }
 
+/* Menu */
 .navbar-menu {
     display: flex;
     list-style: none;
@@ -25,45 +35,81 @@
     font-size: 18px;
 }
 
+.navbar-menu li {
+    cursor: pointer;
+    position: relative;
+    transition: color 0.5s ease;
+}
+
+/* Màu chữ khi hover */
+.navbar-menu li a {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    padding-bottom: 4px;
+    font-weight: 500;
+    transition: color 0.5s ease;
+}
+
+/* Đường border dưới chân */
+.navbar-menu li a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 3px;
+    background-color: tomato;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-out;
+}
+
+/* Khi hover, chạy màu từ trái sang phải */
+.navbar-menu li a:hover::before {
+    transform: scaleX(1);
+}
+
+/* Khi rời chuột, thu lại từ phải sang trái */
+.navbar-menu li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 3px;
+    background-color: tomato;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease-in;
+}
+
+.navbar-menu li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Khi hover, đổi màu chữ */
+.navbar-menu li a:hover {
+    color: tomato;
+    font-weight: 600;
+}
+
+/* Hiệu ứng active khi cuộn */
+.navbar-menu li a.active {
+    color: tomato;
+    font-weight: 600;
+}
+
+/* Giữ border dưới chân khi active */
+.navbar-menu li a.active::before {
+    transform: scaleX(1);
+}
+
+/* Search và giỏ hàng */
 .navbar-right {
     display: flex;
     align-items: center;
     gap: 40px;
-}
-
-.navbar button {
-    background: transparent;
-    font-size: 16px;
-    color: #49557e;
-    border: 1px solid tomato;
-    padding: 10px 30px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.navbar button:hover {
-    background-color: tomato;
-    color: white;
-    transition: 0.3s;
-}
-
-.navbar .active {
-    padding-bottom: 2px;
-    font-weight: 500;
-    border-bottom: 2px solid tomato;
-    color: tomato;
-}
-
-.navbar li {
-    cursor: pointer;
-}
-
-.navbar li a:hover {
-    padding-bottom: 2px;
-    font-weight: 500;
-    border-bottom: 2px solid tomato;
-    color: tomato;
 }
 
 .navbar-search-icon {
@@ -80,7 +126,30 @@
     right: -8px;
 }
 
+/* Nút đăng nhập */
+.navbar button {
+    background: transparent;
+    font-size: 16px;
+    color: #49557e;
+    border: 1px solid tomato;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.navbar button:hover {
+    background-color: tomato;
+    color: white;
+}
+
+/* Responsive Design */
 @media (max-width: 1050px) {
+    .navbar {
+        margin: auto 50px;
+        padding: 15px 50px;
+    }
+
     .navbar .logo {
         width: 140px;
     }
@@ -104,6 +173,11 @@
 }
 
 @media (max-width: 900px) {
+    .navbar {
+        margin: auto 30px;
+        padding: 15px 30px;
+    }
+
     .navbar .logo {
         width: 120px;
     }
@@ -127,6 +201,7 @@
     }
 }
 
+/* Ẩn menu trên mobile */
 @media (max-width: 750px) {
     .navbar-menu {
         display: none;
