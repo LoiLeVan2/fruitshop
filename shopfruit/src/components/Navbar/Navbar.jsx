@@ -14,7 +14,6 @@ const Navbar = ({ setShowLogin }) => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
 
-            // Xác định vị trí của từng section
             const sections = [
                 { id: "home", offset: document.getElementById("home")?.offsetTop || 0 },
                 { id: "explore-menu", offset: document.getElementById("explore-menu")?.offsetTop || 0 },
@@ -22,7 +21,7 @@ const Navbar = ({ setShowLogin }) => {
                 { id: "footer", offset: document.getElementById("footer")?.offsetTop || 0 },
             ];
 
-            const scrollPosition = window.scrollY + 100; // Thêm khoảng bù để xác định đúng section
+            const scrollPosition = window.scrollY + 350;
 
             for (let i = sections.length - 1; i >= 0; i--) {
                 if (scrollPosition >= sections[i].offset) {

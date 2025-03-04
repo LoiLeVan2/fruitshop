@@ -6,17 +6,18 @@ import Navbar from './components/Navbar/Navbar'
 import Cart from './pages/Cart/Cart'
 import Home from './pages/Home/Home'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
+import ProductDetail from './pages/ProductDetail/ProductDetail'
 
 const App = () => {
-
   const [showLogin, setShowLogin] = useState(false)
 
   return (
     <>
-      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
+      {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
       <div className='app'>
         <Navbar setShowLogin={setShowLogin} />
         <Routes>
+          <Route path='/product/:id' element={<ProductDetail />} />
           <Route path="/" element={<Home />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/order' element={<PlaceOrder />} />
@@ -27,4 +28,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
