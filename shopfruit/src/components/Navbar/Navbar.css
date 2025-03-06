@@ -58,7 +58,7 @@
     height: 3px;
     background-color: tomato;
     transform: scaleX(0);
-    transform-origin: left;
+    /* transform-origin: left; */
     transition: transform 0.5s ease-out;
 }
 
@@ -75,7 +75,7 @@
     height: 3px;
     background-color: tomato;
     transform: scaleX(0);
-    transform-origin: right;
+    /* transform-origin: right; */
     transition: transform 0.5s ease-in;
 }
 

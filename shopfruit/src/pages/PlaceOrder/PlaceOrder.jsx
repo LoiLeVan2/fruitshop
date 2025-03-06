@@ -1,10 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StoreContext } from '../../context/StoreContext';
 import './PlaceOrder.css';
 
 const PlaceOrder = () => {
 
     const { getTotalCartAmount } = useContext(StoreContext);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <form className='place-order'>

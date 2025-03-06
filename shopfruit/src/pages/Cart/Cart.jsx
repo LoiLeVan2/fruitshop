@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 import './Cart.css';
@@ -8,6 +8,10 @@ const Cart = () => {
     const { cartItems, food_list, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div className='cart'>

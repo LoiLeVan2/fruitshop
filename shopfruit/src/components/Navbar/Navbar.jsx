@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { assets } from '../../assets/frontend_assets/assets';
 import { StoreContext } from '../../context/StoreContext';
 import './Navbar.css';
@@ -8,9 +8,22 @@ const Navbar = ({ setShowLogin }) => {
     const [menu, setMenu] = useState("home");
     const { getTotalCartAmount } = useContext(StoreContext);
     const navigate = useNavigate();
+    const location = useLocation(); // Lấy đường dẫn hiện tại
     const [isScrolled, setIsScrolled] = useState(false);
 
+    // Cập nhật trạng thái active khi chuyển trang
     useEffect(() => {
+        if (location.pathname === "/") {
+            setMenu("home");
+        } else {
+            setMenu(""); // Reset trạng thái active nếu không phải trang chủ
+        }
+    }, [location.pathname]);
+
+    // Xử lý sự kiện cuộn trang chỉ khi ở trang chủ
+    useEffect(() => {
+        if (location.pathname !== "/") return;
+
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
 
@@ -35,8 +48,9 @@ const Navbar = ({ setShowLogin }) => {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, []);
+    }, [location.pathname]);
 
+    // Chuyển trang về Home
     const handleHomeClick = () => {
         setMenu("home");
         navigate("/");
@@ -45,7 +59,9 @@ const Navbar = ({ setShowLogin }) => {
 
     return (
         <div className={`navbar ${isScrolled ? "scrolled" : ""}`}>
-            <Link to='/'><img src={assets.logo} alt="logo" className="logo" /></Link>
+            <Link to='/' onClick={handleHomeClick}>
+                <img src={assets.logo} alt="logo" className="logo" />
+            </Link>
             <ul className="navbar-menu">
                 <li>
                     <Link to='/' onClick={handleHomeClick} className={menu === "home" ? "active" : ""}>
@@ -71,7 +87,9 @@ const Navbar = ({ setShowLogin }) => {
             <div className="navbar-right">
                 <img src={assets.search_icon} alt="search" />
                 <div className="navbar-search-icon">
-                    <Link to='/cart'><img src={assets.basket_icon} alt="cart" /></Link>
+                    <Link to='/cart'>
+                        <img src={assets.basket_icon} alt="cart" />
+                    </Link>
                     <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
                 </div>
                 <button onClick={() => setShowLogin(true)}>Sign In</button>

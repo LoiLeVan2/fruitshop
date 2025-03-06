@@ -92,11 +92,12 @@
 
 .quantity-display {
     padding: 10px 15px;
-    /* font-size: 18px;
-    font-weight: 500; */
-    background-color: #fff;
-    border-radius: 50px;
+    /* font-size: 18px; */
+    font-weight: 500;
+    /* background-color: #fff; */
+    /* border-radius: 50px; */
     /* border: 1px solid #ddd; */
+    color: white;
     text-align: center;
     min-width: 40px;
 }

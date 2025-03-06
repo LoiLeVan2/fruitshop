@@ -113,7 +113,7 @@
 }
 
 .cart-promocode-input button:hover {
-    background-color: black;
+    background-color: tomato;
 }
 
 @media (max-width:750px) {
