@@ -33,7 +33,7 @@
     border-radius: 4px;
     border: none;
     padding: 10px;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
 }
 
 .cart-items-item button:hover {
@@ -71,7 +71,8 @@
     border: none;
     padding: 12px 0px;
     width: max(15vw, 200px);
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .cart-total button:hover {
@@ -99,6 +100,7 @@
     background: transparent;
     border: none;
     outline: none;
+    padding: 10px 173px;
     padding-left: 10px;
 }
 
@@ -110,10 +112,11 @@
     padding: 12px 0px;
     width: max(10vw, 150px);
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .cart-promocode-input button:hover {
-    background-color: black;
+    background-color: tomato;
 }
 
 @media (max-width:750px) {
