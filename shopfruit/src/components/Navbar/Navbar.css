@@ -1,6 +1,6 @@
 .navbar {
     /* margin: auto 100px; */
-    padding: 20px 100px;
+    padding: 25px 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,7 +14,6 @@
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 
-/* Khi cuộn xuống, navbar có nền trắng mờ + hiệu ứng blur */
 .navbar.scrolled {
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -125,12 +124,67 @@
     padding: 10px 30px;
     border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 .navbar button:hover {
     background-color: tomato;
     color: white;
+}
+
+.navbar-profile {
+    position: relative;
+}
+
+.nav-profile-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 0;
+    z-index: 1;
+    opacity: 0;
+    max-height: 0;
+    padding: 12px 25px;
+    background-color: white;
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out, transform 0.3s ease-in-out;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid tomato;
+    outline: 2px solid white;
+    gap: 10px;
+    list-style: none;
+
+    pointer-events: none;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+    opacity: 1;
+    max-height: 500px;
+    transition: 0.3s ease-in-out;
+
+    pointer-events: auto;
+}
+
+.nav-profile-dropdown:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+}
+
+.nav-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-profile-dropdown img {
+    width: 20px;
+}
+
+.nav-profile-dropdown li:hover {
+    color: tomato;
+    transform: scale(1.1);
 }
 
 @media (max-width: 1050px) {
