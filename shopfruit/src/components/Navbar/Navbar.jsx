@@ -6,15 +6,18 @@ import './Navbar.css';
 
 const Navbar = ({ setShowLogin }) => {
     const [menu, setMenu] = useState("home");
-    const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+    const { getTotalCartAmount, token, setToken, food_list } = useContext(StoreContext);
     const navigate = useNavigate();
     const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filteredFoodList, setFilteredFoodList] = useState([]);
+
     const logout = () => {
         localStorage.removeItem("token");
         setToken("");
-        navigate("/")
-    }
+        navigate("/");
+    };
 
     useEffect(() => {
         if (location.pathname === "/") {
@@ -53,6 +56,16 @@ const Navbar = ({ setShowLogin }) => {
         };
     }, [location.pathname]);
 
+    useEffect(() => {
+        if (searchQuery === "") {
+            setFilteredFoodList([]);
+        } else {
+            setFilteredFoodList(food_list.filter(food =>
+                food.name.toLowerCase().includes(searchQuery.toLowerCase())
+            ));
+        }
+    }, [searchQuery, food_list]);
+
     const handleHomeClick = () => {
         setMenu("home");
         navigate("/");
@@ -87,7 +100,27 @@ const Navbar = ({ setShowLogin }) => {
                 </li>
             </ul>
             <div className="navbar-right">
-                <img src={assets.search_icon} alt="search" />
+                <div className="navbar-search">
+                    <img src={assets.search_icon} alt="search" className="search-icon" />
+                    <input
+                        type="text"
+                        placeholder="Search for food..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onFocus={() => { if (!searchQuery) setFilteredFoodList([]); }}
+                    />
+                    {searchQuery && filteredFoodList.length > 0 && (
+                        <div className="search-results">
+                            <ul>
+                                {filteredFoodList.map((food) => (
+                                    <li key={food._id}>
+                                        <Link to={`/product/${food._id}`}>{food.name}</Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </div>
                 <div className="navbar-search-icon">
                     <Link to='/cart'>
                         <img src={assets.basket_icon} alt="cart" />
@@ -103,7 +136,6 @@ const Navbar = ({ setShowLogin }) => {
                             <li onClick={logout}><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
                         </ul>
                     </div>}
-
             </div>
         </div>
     );
