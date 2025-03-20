@@ -12,7 +12,7 @@
 
 .my-orders-order {
     display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr 1fr 2fr 1fr;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
     gap: 30px;
     font-size: 14px;
@@ -40,7 +40,8 @@
     border-radius: 4px;
     background-color: hsl(9, 100%, 80%);
     cursor: pointer;
-    color: #454545;
+    color: white;
+    font-weight: 500;
     transition: 0.3s ease-in-out;
 }
 

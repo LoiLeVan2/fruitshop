@@ -17,7 +17,7 @@ const Slidebar = () => {
                 </NavLink>
                 <NavLink to='/orders' className="slidebar-option">
                     <img src={assets.order_icon} alt="" />
-                    <p>Oders</p>
+                    <p>Orders</p>
                 </NavLink>
             </div>
         </div>

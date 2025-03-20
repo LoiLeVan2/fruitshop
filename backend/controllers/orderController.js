@@ -14,7 +14,8 @@ const placeOder = async (req, res) => {
             userId: req.body.userId,
             items: req.body.items,
             amount: req.body.amount,
-            address: req.body.address
+            address: req.body.address,
+            date: new Date()
         })
         await newOrder.save();
         await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
