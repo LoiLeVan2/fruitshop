@@ -57,6 +57,7 @@ const Orders = ({ url }) => {
                                 <p>{order.address.city + ", " + order.address.state + ", " + order.address.country + ", " + order.address.zipcode}</p>
                             </div>
                             <p className="order-item-phone">{order.address.phone}</p>
+                            <p>{new Date(order.date).toLocaleString()}</p>
                         </div>
                         <p>Items : {order.items.length}</p>
                         <p>${order.amount}</p>
