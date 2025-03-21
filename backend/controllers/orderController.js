@@ -5,7 +5,7 @@ import userModel from "../models/userModel.js";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 // placing user oder for frontend
-const placeOder = async (req, res) => {
+const placeOrder = async (req, res) => {
 
     const frontend_url = "http://localhost:5173";
 
@@ -107,6 +107,6 @@ const updateStatus = async (req, res) => {
     }
 }
 
-export { listOrders, placeOder, updateStatus, userOrders, verifyOrder };
+export { listOrders, placeOrder, updateStatus, userOrders, verifyOrder };
 
 
